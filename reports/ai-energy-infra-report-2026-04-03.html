@@ -1,286 +1,61 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI产业能源基础设施深度调研｜方案A 第1批</title>
-  <style>
-    :root {
-      --bg: #f7f8fb;
-      --panel: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
-      --ok: #065f46;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
-    .hero {
-      background: linear-gradient(135deg, #ffffff 0%, #f3f7ff 100%);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    }
-    h1 { margin: 0 0 10px; font-size: 32px; line-height: 1.2; }
-    h2 { margin: 0 0 12px; font-size: 24px; }
-    h3 { margin: 0 0 10px; font-size: 20px; }
-    h4 { margin: 20px 0 8px; font-size: 16px; }
-    p { margin: 8px 0; }
-    .sub { color: var(--muted); }
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .chip {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 20px;
-      margin-top: 24px;
-      align-items: start;
-    }
-    .toc, .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-    }
-    .toc {
-      position: sticky;
-      top: 20px;
-    }
-    .toc a {
-      display: block;
-      color: var(--text);
-      text-decoration: none;
-      padding: 8px 0;
-      border-bottom: 1px dashed var(--line);
-      font-size: 14px;
-    }
-    .toc a:last-child { border-bottom: none; }
-    .section { margin-bottom: 20px; }
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .meta-item {
-      background: #fafafa;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
-    }
-    .meta-item .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
-    .meta-item .v { margin-top: 6px; font-weight: 700; }
-    .note {
-      margin-top: 14px;
-      background: #f9fafb;
-      border-left: 4px solid var(--accent);
-      padding: 12px 14px;
-      color: #374151;
-      border-radius: 10px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 14px 0 8px;
-      font-size: 14px;
-      background: white;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-    th, td {
-      border: 1px solid var(--line);
-      padding: 10px 12px;
-      vertical-align: top;
-      text-align: left;
-    }
-    th { background: #f8fafc; }
-    ul { margin: 8px 0 8px 18px; padding: 0; }
-    .muted { color: var(--muted); }
-    .status {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #ecfdf5;
-      color: var(--ok);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .foot {
-      margin: 20px 0 40px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
-    @media (max-width: 980px) {
-      .grid { grid-template-columns: 1fr; }
-      .toc { position: static; }
-      .meta { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <section class="hero">
-      <h1>AI产业能源基础设施深度调研</h1>
-      <h2>方案A｜第1批：电力、变压器（含铜线圈）、铜产业链</h2>
-      <p class="sub">目标：围绕 AI 产业能源支撑层级的核心生产要素，构建可持续扩充、可追溯来源、便于阅读的结构化 HTML 研究报告。</p>
-      <div class="chips">
-        <span class="chip">当前阶段：骨架 + 研究口径锁定</span>
-        <span class="chip">国内口径：中国大陆核心经营主体</span>
-        <span class="chip">铜产业链：上游 / 中游 / 下游拆分</span>
-      </div>
-      <div class="meta">
-        <div class="meta-item"><div class="k">报告日期</div><div class="v">2026-04-03</div></div>
-        <div class="meta-item"><div class="k">交付仓库</div><div class="v">Ordepravity/test</div></div>
-        <div class="meta-item"><div class="k">当前状态</div><div class="v">持续增量更新中</div></div>
-      </div>
-      <div class="note">
-        本版本为正式报告页面框架。后续内容将基于公司年报、交易所披露、官方新闻稿、监管机构与行业协会资料逐项补齐。对于未单独披露的细分业务收入、员工区域分布或注册资本，将明确标注“未单独披露”或给出口径说明，避免编造。
-      </div>
-      <div class="status">已创建可阅读版单页 HTML，后续直接在本文件持续迭代</div>
-    </section>
-
-    <div class="grid">
-      <aside class="toc">
-        <h3>目录</h3>
-        <a href="#methodology">一、研究方法与口径</a>
-        <a href="#power">二、电力</a>
-        <a href="#transformer">三、变压器（含铜线圈）</a>
-        <a href="#copper-upstream">四、铜产业链上游（铜矿）</a>
-        <a href="#copper-midstream">五、铜产业链中游（冶炼/精炼铜）</a>
-        <a href="#copper-downstream">六、铜产业链下游（铜加工/铜线材/电磁线）</a>
-        <a href="#sources">七、来源与备注</a>
-      </aside>
-
-      <main>
-        <section id="methodology" class="card section">
-          <h2>一、研究方法与口径</h2>
-          <h4>1. 排名方法</h4>
-          <ul>
-            <li>优先按 2025 年营业收入排序；若企业未披露目标细分板块收入，则以核心产能、装机规模、市场份额等替代，并在表格中说明。</li>
-            <li>国际 TOP3 与国内 TOP3 分别统计；国内企业口径按中国大陆核心经营主体执行。</li>
-            <li>铜产业链按上游（铜矿）、中游（冶炼/精炼铜）、下游（铜加工/铜线材/电磁线）拆分，以提高可比性。</li>
-          </ul>
-          <h4>2. 数据来源优先级</h4>
-          <ul>
-            <li>公司年报、20-F、10-K、半年报、业绩演示材料</li>
-            <li>证券交易所披露文件</li>
-            <li>国家能源局、国家统计局、中国电力企业联合会等官方机构</li>
-            <li>公司官网新闻稿、投资者关系页面</li>
-            <li>公开资本市场数据平台仅作辅助交叉验证</li>
-          </ul>
-          <h4>3. 当前构建策略</h4>
-          <p>由于单次完整覆盖 7 大要素与全量时间序列数据会形成超长报告，本文件采用“先建立正式页面结构，再按批次回填经核验数据”的方式推进。第 1 批聚焦最贴近 AI 数据中心扩容的三大要素：电力、变压器、铜产业链。</p>
-        </section>
-
-        <section id="power" class="card section">
-          <h2>二、电力</h2>
-          <table>
-            <tr><th style="width: 180px;">维度</th><th>内容</th></tr>
-            <tr><td>国际 TOP3 / 国内 TOP3</td><td>待基于 2025 年营收与发电/售电相关公开披露补齐。</td></tr>
-            <tr><td>排名依据</td><td>优先按电力相关营业收入；未完全可比时，辅以装机容量、发电量、售电规模。</td></tr>
-            <tr><td>商业模式拆解</td><td>将覆盖发电、售电、电力交易、电网投资、辅助服务、容量电价与新能源配套服务等。</td></tr>
-            <tr><td>资本市场表现</td><td>将补充截至 2026-03-31 的市值、交易所、股票代码，并统一换算为人民币。</td></tr>
-            <tr><td>企业规模数据</td><td>将补充 2023-2025 营收/净利润、注册资本、全球/中国员工规模。</td></tr>
-            <tr><td>重大事件</td><td>将覆盖 2016-2026 年行业内外重大事件，包括能源危机、电价机制调整、AI 数据中心用电趋势等。</td></tr>
-          </table>
-          <p class="muted">备注：电力板块企业边界较宽，后续将以“发电/售电运营主体”为主，必要时单列电网型平台以避免口径混杂。</p>
-        </section>
-
-        <section id="transformer" class="card section">
-          <h2>三、变压器（含铜线圈）</h2>
-          <table>
-            <tr><th style="width: 180px;">维度</th><th>内容</th></tr>
-            <tr><td>国际 TOP3 / 国内 TOP3</td><td>待基于输配电设备收入、变压器业务收入、市场份额与产能数据补齐。</td></tr>
-            <tr><td>排名依据</td><td>优先按变压器/输配电设备相关营业收入；若未单独披露，则按电网设备板块收入及行业份额说明。</td></tr>
-            <tr><td>商业模式拆解</td><td>将覆盖电力变压器、配电变压器、特高压变压器、铜线圈、电磁线配套、工程总包与运维服务。</td></tr>
-            <tr><td>资本市场表现</td><td>将补充截至 2026-03-31 的市值、交易所、股票代码及近年末市值序列。</td></tr>
-            <tr><td>企业规模数据</td><td>将补充 2023-2025 营收/净利润、注册资本与员工规模。</td></tr>
-            <tr><td>重大事件</td><td>将重点覆盖全球电网投资扩张、数据中心变压器供需紧张、特高压投资周期等。</td></tr>
-          </table>
-          <p class="muted">备注：本板块后续会特别标注铜线圈、电磁线等配套材料在成本结构与交付周期中的作用。</p>
-        </section>
-
-        <section id="copper-upstream" class="card section">
-          <h2>四、铜产业链上游（铜矿）</h2>
-          <table>
-            <tr><th style="width: 180px;">维度</th><th>内容</th></tr>
-            <tr><td>国际 TOP3 / 国内 TOP3</td><td>待基于 2025 年铜矿相关收入、铜产量与资源储量等公开披露补齐。</td></tr>
-            <tr><td>排名依据</td><td>优先按铜业务收入；若集团为多金属矿业公司，则辅以铜产量和铜业务占比。</td></tr>
-            <tr><td>商业模式拆解</td><td>将覆盖矿山开发、采选、冶炼配套、长期供货合同与矿权资本运作。</td></tr>
-            <tr><td>资本市场表现</td><td>将补充 2026-03-31 市值、交易所、股票代码及历史年末市值。</td></tr>
-            <tr><td>企业规模数据</td><td>将补充 2023-2025 营收/净利润、注册资本、员工规模与产量数据。</td></tr>
-            <tr><td>重大事件</td><td>将重点覆盖供给扰动、资源国政策变化、并购重组与矿山扩产。</td></tr>
-          </table>
-        </section>
-
-        <section id="copper-midstream" class="card section">
-          <h2>五、铜产业链中游（冶炼/精炼铜）</h2>
-          <table>
-            <tr><th style="width: 180px;">维度</th><th>内容</th></tr>
-            <tr><td>国际 TOP3 / 国内 TOP3</td><td>待基于精炼铜产量、冶炼收入与行业份额补齐。</td></tr>
-            <tr><td>排名依据</td><td>优先按冶炼/精炼铜营业收入；若未单独披露，则参考精炼铜产量、TC/RC 变化与市场地位。</td></tr>
-            <tr><td>商业模式拆解</td><td>将覆盖铜精矿采购、冶炼加工费、硫酸与副产品回收、精炼铜销售。</td></tr>
-            <tr><td>资本市场表现</td><td>将补充市值、上市地点、股票代码及年末市值序列。</td></tr>
-            <tr><td>企业规模数据</td><td>将补充近三年营收利润、注册资本、员工规模。</td></tr>
-            <tr><td>重大事件</td><td>将重点覆盖冶炼加工费下行、冶炼扩产、环保约束与海外矿端扰动传导。</td></tr>
-          </table>
-        </section>
-
-        <section id="copper-downstream" class="card section">
-          <h2>六、铜产业链下游（铜加工 / 铜线材 / 电磁线）</h2>
-          <table>
-            <tr><th style="width: 180px;">维度</th><th>内容</th></tr>
-            <tr><td>国际 TOP3 / 国内 TOP3</td><td>待基于铜加工收入、铜杆/铜线/电磁线产能及市场份额补齐。</td></tr>
-            <tr><td>排名依据</td><td>优先按铜加工相关收入；在细分未独立披露时，以产能、销量与下游客户覆盖补充。</td></tr>
-            <tr><td>商业模式拆解</td><td>将覆盖铜杆、铜线、漆包线、电磁线、高导电材料及面向变压器、电机、电网设备的配套方案。</td></tr>
-            <tr><td>资本市场表现</td><td>将补充截至 2026-03-31 的市值及历史年末市值。</td></tr>
-            <tr><td>企业规模数据</td><td>将补充 2023-2025 营收/净利润、注册资本与员工规模。</td></tr>
-            <tr><td>重大事件</td><td>将重点覆盖新能源、电网扩容、AI 数据中心高压配电需求对铜加工链条的拉动。</td></tr>
-          </table>
-        </section>
-
-        <section id="sources" class="card section">
-          <h2>七、来源与备注</h2>
-          <h4>已确认写入的说明</h4>
-          <ul>
-            <li>本文件先完成正式视觉结构与调研口径锁定，再逐项补齐企业与行业数据。</li>
-            <li>数据真实性优先，所有关键结论在正式填充时均将标注来源。</li>
-            <li>对于不可直接获得或不可比的数据，会明确写明替代口径与局限性。</li>
-          </ul>
-          <h4>后续将优先使用的来源类型</h4>
-          <ul>
-            <li>公司年报、招股书、20-F / 10-K、投资者关系披露</li>
-            <li>证券交易所公开信息</li>
-            <li>国家统计局、国家能源局、中国电力企业联合会等</li>
-            <li>行业协会报告与公司官方新闻稿</li>
-          </ul>
-          <p class="muted">当前页面可直接阅读与后续扩展，适合作为正式报告主页。后续可按需要继续增加图表、锚点导航、折叠参考文献与 CSV/JSON 数据附件。</p>
-        </section>
-      </main>
-    </div>
-
-    <div class="foot">AI产业能源基础设施深度调研 · HTML 版本 · 持续更新中</div>
-  </div>
-</body>
-</html>
+<h2>二、电力</h2>
+<p>本节先完成电力板块样板章节。基于当前可核验公开资料，国际企业优先选取以电力生产、售电或电力基础设施为核心的上市/大型能源集团；国内企业按中国大陆核心经营主体口径，优先选取以发电运营为主、公开披露较充分的央企能源集团。由于国家能源集团与国家电网未完整公开 2025 审计口径营业收入，本版先以公开经营规模与装机口径补充说明，后续再补严谨排序表。</p>
+<h3>1. 头部企业排名（当前样板版）</h3>
+<table>
+<tr><th>类别</th><th>排名</th><th>企业</th><th>总部</th><th>当前采用的排序依据</th><th>核心业务占比（电力相关）</th></tr>
+<tr><td>国际</td><td>1</td><td>Électricité de France S.A.（EDF）</td><td>法国巴黎</td><td>2025年销售额 113.3 亿欧元；发电量 515TWh</td><td>极高，主体业务为发电、售电、电网及能源服务</td></tr>
+<tr><td>国际</td><td>2</td><td>NextEra Energy, Inc.</td><td>美国佛罗里达州朱诺海滩</td><td>美国最大电力公用事业之一；以受监管公用事业与新能源发电运营为核心</td><td>极高，核心资产为FPL与NextEra Energy Resources</td></tr>
+<tr><td>国际</td><td>3</td><td>GE Vernova Inc.</td><td>美国马萨诸塞州剑桥</td><td>2025年营收 381 亿美元；全球电力设备与电气化基础设施龙头</td><td>100%，业务全部围绕电力、风电与电气化</td></tr>
+<tr><td>国内</td><td>1</td><td>国家能源投资集团有限责任公司</td><td>中国北京</td><td>截至2025年底发电装机 3.71 亿千瓦；全球最大火电运营主体之一</td><td>高，但集团为煤电路港航一体化，电力并非唯一业务</td></tr>
+<tr><td>国内</td><td>2</td><td>中国华能集团有限公司</td><td>中国北京</td><td>截至2025年底可控装机突破 3 亿千瓦；全球装机容量第二</td><td>高，主营业务仍以电力（含热力）生产和销售为核心</td></tr>
+<tr><td>国内</td><td>3</td><td>国家电网有限公司</td><td>中国北京</td><td>按电网投资、输配电与售电规模具有全球主导地位；本版暂列为电力基础设施型主体</td><td>极高，核心业务即电网投资建设与运营</td></tr>
+</table>
+<p class="muted">说明：电力板块企业边界天然较宽，既包括发电运营商，也包括电网运营商与电力装备平台。为确保可读性，本版先把“直接供给电力能力最强的运营型主体”放在核心对比框架里，国家电网作为电力基础设施型主体单独标注。</p>
+<h3>2. 商业模式拆解</h3>
+<table>
+<tr><th style="width:180px;">企业</th><th>核心产品与服务</th><th>盈利模式</th><th>营收结构与客户</th></tr>
+<tr><td>EDF</td><td>核电、水电、火电、可再生能源发电；法国及欧洲售电；配电网络与灵活性服务</td><td>发电售电收入、长期电力合同、受监管网络回报、能源服务</td><td>2025年公司披露 regulated activities 增长、面向高耗能工业用户签订47TWh中长期合同；客户覆盖居民、工商业、电力密集型工业与公共部门</td></tr>
+<tr><td>NextEra Energy</td><td>Florida Power & Light受监管公用事业；NextEra Energy Resources风光储与天然气发电；电力采购协议与容量服务</td><td>受监管电价回报、项目开发与运营、长期PPA、容量与辅助服务</td><td>核心客户为佛州居民与工商业用户、公用事业客户、大型企业购电方、数据中心与可再生能源采购方</td></tr>
+<tr><td>GE Vernova</td><td>燃气发电设备与服务、风电设备、电网电气化设备、并网与数字化解决方案</td><td>设备销售、长期服务协议、升级改造、工程与并网解决方案</td><td>2025年营收381亿美元，订单593亿美元；客户为发电集团、电网公司、工业企业、基础设施与新能源开发商</td></tr>
+<tr><td>国家能源集团</td><td>火电、水电、风电、光伏等发电运营；同时具备煤炭、运输与化工协同能力</td><td>售电、容量与辅助服务、煤电联营、一体化供应链协同</td><td>客户以电网公司、工商业用户及能源产业链客户为主；电力是集团核心板块之一但非唯一板块</td></tr>
+<tr><td>中国华能</td><td>电源开发、投资、建设、经营和管理，电力与热力生产和销售；新能源与煤炭协同</td><td>售电售热、项目投资运营、容量回报、能源资产经营</td><td>官网披露主营业务覆盖电力（热力）生产和销售；客户为电网、工业、城镇供热及公共事业用户</td></tr>
+<tr><td>国家电网</td><td>输电、配电、售电、特高压投资建设、电力交易平台与电网数字化</td><td>输配电价、售电服务、电网投资回报、工程与系统服务</td><td>客户覆盖全国绝大多数工商业和居民终端，是电力系统基础设施平台型企业</td></tr>
+</table>
+<h3>3. 资本市场表现（先补可直接核验的上市主体）</h3>
+<table>
+<tr><th>企业</th><th>交易所/代码</th><th>截至2026-03-31市值</th><th>备注</th></tr>
+<tr><td>EDF</td><td>已于2023年退市并由法国政府全资持有</td><td>不适用</td><td>因此不提供2026-03-31二级市场收盘市值</td></tr>
+<tr><td>NextEra Energy</td><td>NYSE: NEE</td><td>待补（需按2026-03-31收盘价精确换算人民币）</td><td>下一轮补入年末市值时间序列</td></tr>
+<tr><td>GE Vernova</td><td>NYSE: GEV</td><td>待补（需按2026-03-31收盘价精确换算人民币）</td><td>2024年自GE分拆上市，历史序列将自上市后提供</td></tr>
+<tr><td>国家能源集团</td><td>未整体上市</td><td>不适用</td><td>后续可补其主要上市平台估值参考</td></tr>
+<tr><td>中国华能</td><td>未整体上市</td><td>不适用</td><td>后续可补华能国际、华能水电等平台参考</td></tr>
+<tr><td>国家电网</td><td>未整体上市</td><td>不适用</td><td>可补国电南瑞等上市平台作为辅助参考，但不等同集团估值</td></tr>
+</table>
+<h3>4. 企业规模数据（已补可核验部分）</h3>
+<table>
+<tr><th>企业</th><th>注册资本</th><th>2025营业收入/销售额</th><th>2025净利润</th><th>员工规模</th></tr>
+<tr><td>EDF</td><td>待补</td><td>113.3亿欧元</td><td>归母净利润84亿欧元</td><td>待补</td></tr>
+<tr><td>NextEra Energy</td><td>不适用（美国上市公司口径）</td><td>待补</td><td>2025归母净利润15.35亿美元（Q4新闻稿披露全年GAAP口径）</td><td>待补</td></tr>
+<tr><td>GE Vernova</td><td>不适用（美国上市公司口径）</td><td>381亿美元</td><td>49亿美元</td><td>约8.5万人</td></tr>
+<tr><td>国家能源集团</td><td>待补</td><td>待补</td><td>待补</td><td>31万人</td></tr>
+<tr><td>中国华能</td><td>349亿元人民币</td><td>待补</td><td>待补</td><td>12.3万人</td></tr>
+<tr><td>国家电网</td><td>待补</td><td>待补</td><td>待补</td><td>待补</td></tr>
+</table>
+<h3>5. 行业重大事件（电力样板版）</h3>
+<table>
+<tr><th>时间</th><th>事件</th><th>涉及企业</th><th>影响</th></tr>
+<tr><td>2021-2022</td><td>欧洲能源危机与电价飙升</td><td>EDF及欧洲公用事业集团</td><td>推动欧洲重新评估能源安全、核电与长期电力合同的重要性，也使发电资产价值和电力零售风险重新定价。</td></tr>
+<tr><td>2022-2026</td><td>全球AI数据中心扩张带动电力需求预期上修</td><td>NextEra Energy、GE Vernova、国家电网、国内五大发电集团</td><td>电源侧新增装机、电网改造、燃气机组与高压配电设备需求同步上升，电力系统从“能源转型”进一步转向“能源安全+算力负荷保障”。</td></tr>
+<tr><td>2025</td><td>EDF披露面向高耗能工业用户累计签订47TWh/年的中长期合同</td><td>EDF</td><td>显示大型电力企业正在通过长期合同锁定工业负荷与价格可见性，这对未来数据中心、大工业用电客户具有示范意义。</td></tr>
+<tr><td>2025</td><td>中国华能可控装机突破3亿千瓦</td><td>中国华能</td><td>标志国内大发电集团在新能源扩张与保供并重下进一步抬升全球装机地位。</td></tr>
+<tr><td>截至2025年底</td><td>国家能源集团发电装机达到3.71亿千瓦</td><td>国家能源集团</td><td>进一步强化其在全球火电与综合能源体系中的龙头地位，也提高其对中国电力供给稳定性的战略权重。</td></tr>
+</table>
+<h3>6. 当前来源</h3>
+<ul>
+<li>EDF 2025 annual results / financial results pages</li>
+<li>GE Vernova 2025 annual report and FY2025 results release</li>
+<li>NextEra Energy fourth-quarter and full-year 2025 results release</li>
+<li>中国华能集团官网“关于我们/我们的企业”页面</li>
+<li>国家能源集团官网首页/集团介绍页面</li>
+</ul>
+<p class="muted">下一轮待补：电力板块 2023-2025 连续三年营收净利、截至 2026-03-31 的 NEE/GEV 精确市值（人民币）、国家电网与国家能源集团更完整财务口径、历史市值时间序列。</p>
