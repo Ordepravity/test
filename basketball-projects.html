@@ -1,91 +1,257 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>篮球相关开源GitHub项目</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1, h2 { color: #333; }
-        .project-card { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin: 10px 0; }
-        .project-list { list-style-type: none; padding: 0; }
-        .project-item { margin: 5px 0; }
-        footer { margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>篮球领域 GitHub 开源项目导航</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --card: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-2: #38bdf8;
+      --border: #334155;
+      --success: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(56,189,248,.12));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.25);
+      margin-bottom: 24px;
+    }
+    h1, h2, h3 { margin: 0 0 12px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; margin-top: 28px; }
+    p { margin: 0 0 10px; }
+    .meta, .tips {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .badge {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .summary-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .summary-card .num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: rgba(17,24,39,.88);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 240px;
+    }
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    a {
+      color: #f8fafc;
+      text-decoration: none;
+    }
+    a:hover { color: var(--accent); }
+    .stars {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .owner, .desc, .tagline {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .tag {
+      font-size: 12px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: #cbd5e1;
+    }
+    .highlight {
+      border-color: rgba(245,158,11,.4);
+      box-shadow: inset 0 0 0 1px rgba(245,158,11,.08);
+    }
+    .footer {
+      margin-top: 36px;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    ul { padding-left: 18px; }
+    code {
+      background: rgba(255,255,255,.06);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #fde68a;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>篮球相关开源GitHub项目</h1>
-        <p>生成日期: 2026-04-15</p>
-        <p>该列表是手动整理的，来自GitHub搜索结果，星标可能会随时间变化。</p>
-    </header>
-    <section>
-        <h2>热门项目</h2>
-        <div class="project-list">
-            <div class="project-card">
-                <h3><a href="https://github.com/homerchen19/nba-go">homerchen19/nba-go</a></h3>
-                <p>🌟 3714 stars</p>
-                <p>工具类型: NBA CLI</p>
-                <p>描述: 最佳NBA命令行工具，提供NBA数据和得分。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/chonyy/AI-basketball-analysis">chonyy/AI-basketball-analysis</a></h3>
-                <p>🌟 1239 stars</p>
-                <p>工具类型: AI web应用</p>
-                <p>描述: 分析篮球投篮和投篮姿势的AI应用，适合投篮动作分析/姿态分析。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/linouk23/NBA-Player-Movements">linouk23/NBA-Player-Movements</a></h3>
-                <p>🌟 726 stars</p>
-                <p>工具类型: 数据可视化</p>
-                <p>描述: 通过原始SportVU数据日志可视化NBA比赛，适用于球员轨迹分析与比赛可视化。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/wyhuai/SkillMimic">wyhuai/SkillMimic</a></h3>
-                <p>🌟 413 stars</p>
-                <p>工具类型: 技能学习项目</p>
-                <p>描述: CVPR 2025优质项目，学习篮球交互技能，相关于篮球交互动作建模与技能学习。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/ayushpai/AI-Basketball-Referee">ayushpai/AI-Basketball-Referee</a></h3>
-                <p>🌟 354 stars</p>
-                <p>工具类型: 裁判辅助工具</p>
-                <p>描述: AI篮球裁判，相关于犯规/裁判辅助识别。</p>
-            </div>
-        </div>
+  <div class="container">
+    <section class="hero">
+      <h1>🏀 篮球领域 GitHub 开源项目导航</h1>
+      <p>这是一个面向“先快速了解有哪些项目”的整理页，覆盖篮球数据、API、命令行工具、可视化、AI 分析、动作识别、裁判辅助、Fantasy、NCAA、篮球游戏等多个方向。</p>
+      <p class="meta">生成日期：2026-04-15 ｜ 数据来源：GitHub 搜索（关键词：<code>basketball</code>，按 stars 降序）｜ 当前展示：30 / 266 个搜索结果中的人工筛选项目。</p>
+      <div class="badge-row">
+        <span class="badge">按 Stars 排序</span>
+        <span class="badge">覆盖研究 / 工具 / 数据 / 游戏 / 可视化</span>
+        <span class="badge">适合快速扫项目池</span>
+        <span class="badge">结果可能随时间变化</span>
+      </div>
     </section>
-    <section>
-        <h2>其他相关项目</h2>
-        <div class="project-list">
-            <div class="project-card">
-                <h3><a href="https://github.com/cwendt94/espn-api">cwendt94/espn-api</a></h3>
-                <p>🌟 889 stars</p>
-                <p>工具类型: API</p>
-                <p>描述: 包含篮球数据的ESPN Fantasy API。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/bttmly/nba">bttmly/nba</a></h3>
-                <p>🌟 726 stars</p>
-                <p>工具类型: API客户端</p>
-                <p>描述: 为nba.com API端点创建的Node.js客户端。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/jaebradley/basketball_reference_web_scraper">jaebradley/basketball_reference_web_scraper</a></h3>
-                <p>🌟 542 stars</p>
-                <p>工具类型: 数据抓取</p>
-                <p>描述: 通过篮球参考提供的NBA Stats API。</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/kshvmdn/nba.js">kshvmdn/nba.js</a></h3>
-                <p>🌟 356 stars</p>
-                <p>工具类型: Node.js库</p>
-                <p>描述: 用于NBA统计的Node.js库。</p>
-            </div>
-        </div>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <div class="num">30</div>
+        <div>本页整理项目数</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">3714</div>
+        <div>当前最高 Stars 项目：nba-go</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">266</div>
+        <div>GitHub 搜索总结果数（本次查询）</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">6+</div>
+        <div>覆盖方向：数据 / API / AI / 游戏 / NCAA / Fantasy</div>
+      </div>
     </section>
-    <footer>
-        <h2>快速建议</h2>
-        <p>如果您关心投篮检测，建议查看 <a href="https://github.com/chonyy/AI-basketball-analysis">AI-basketball-analysis</a>；如果您关注动作识别，可以查看 <a href="https://github.com/wyhuai/SkillMimic">SkillMimic</a>；如果您对轨迹/可视化感兴趣，建议 <a href="https://github.com/linouk23/NBA-Player-Movements">NBA-Player-Movements</a>；最后，如果您需要统计/API，建议考虑 <a href="https://github.com/homerchen19/nba-go">nba-go</a>。</p>
-    </footer>
+
+    <h2>优先推荐先看</h2>
+    <p class="section-note">如果你只是想先快速建立对“篮球领域都有哪些开源项目”的整体印象，建议先从这几类代表项目开始。</p>
+    <div class="project-grid">
+      <article class="card highlight">
+        <h3><a href="https://github.com/homerchen19/nba-go" target="_blank" rel="noreferrer">homerchen19 / nba-go</a></h3>
+        <div class="stars">★ 3714</div>
+        <div class="owner">方向：NBA 命令行工具 / 数据获取</div>
+        <div class="desc">一个成熟度很高的 NBA CLI 工具，适合快速查看比赛、球队、球员相关信息。它代表的是“篮球数据工具化”的方向。</div>
+        <div class="tags"><span class="tag">数据工具</span><span class="tag">CLI</span><span class="tag">NBA</span></div>
+      </article>
+      <article class="card highlight">
+        <h3><a href="https://github.com/chonyy/AI-basketball-analysis" target="_blank" rel="noreferrer">chonyy / AI-basketball-analysis</a></h3>
+        <div class="stars">★ 1239</div>
+        <div class="owner">方向：AI 投篮分析 / 姿态分析</div>
+        <div class="desc">适合关注“篮球 + 计算机视觉 + 投篮姿势分析”的人，能帮助你快速了解 AI 在篮球训练辅助上的典型玩法。</div>
+        <div class="tags"><span class="tag">AI</span><span class="tag">姿态分析</span><span class="tag">投篮分析</span></div>
+      </article>
+      <article class="card highlight">
+        <h3><a href="https://github.com/linouk23/NBA-Player-Movements" target="_blank" rel="noreferrer">linouk23 / NBA-Player-Movements</a></h3>
+        <div class="stars">★ 726</div>
+        <div class="owner">方向：球员轨迹可视化 / SportVU</div>
+        <div class="desc">基于原始 SportVU 日志做 NBA 比赛可视化，适合关注球员跑位、轨迹分析、战术可视化的人。</div>
+        <div class="tags"><span class="tag">可视化</span><span class="tag">轨迹分析</span><span class="tag">SportVU</span></div>
+      </article>
+      <article class="card highlight">
+        <h3><a href="https://github.com/zengm-games/zengm" target="_blank" rel="noreferrer">zengm-games / zengm</a></h3>
+        <div class="stars">★ 428</div>
+        <div class="owner">方向：篮球经理游戏 / 模拟经营</div>
+        <div class="desc">代表“篮球游戏 / 模拟经营”方向，不是分析工具，但非常适合了解篮球题材在开源社区中的另一类成熟项目形态。</div>
+        <div class="tags"><span class="tag">游戏</span><span class="tag">篮球经理</span><span class="tag">前端应用</span></div>
+      </article>
+    </div>
+
+    <h2>完整整理（按 Stars 粗排序）</h2>
+    <p class="section-note">下面的项目不局限于视觉分析，只要与篮球领域相关就纳入，包括数据、API、终端工具、训练分析、动作识别、NCAA 数据、Fantasy、模拟类等。</p>
+    <div class="project-grid">
+      <article class="card"><h3><a href="https://github.com/homerchen19/nba-go" target="_blank" rel="noreferrer">homerchen19 / nba-go</a></h3><div class="stars">★ 3714</div><div class="tagline">NBA CLI / 数据工具</div><div class="desc">高星篮球命令行工具，适合快速浏览 NBA 比赛和数据，是篮球开源项目中非常典型的“工具型项目”。</div><div class="tags"><span class="tag">CLI</span><span class="tag">NBA</span><span class="tag">工具</span></div></article>
+      <article class="card"><h3><a href="https://github.com/chonyy/AI-basketball-analysis" target="_blank" rel="noreferrer">chonyy / AI-basketball-analysis</a></h3><div class="stars">★ 1239</div><div class="tagline">AI 投篮姿态分析</div><div class="desc">使用 AI Web App 和 API 分析投篮与投篮姿势，偏训练辅助、视频分析与姿态识别。</div><div class="tags"><span class="tag">AI</span><span class="tag">训练辅助</span><span class="tag">视频分析</span></div></article>
+      <article class="card"><h3><a href="https://github.com/cwendt94/espn-api" target="_blank" rel="noreferrer">cwendt94 / espn-api</a></h3><div class="stars">★ 889</div><div class="tagline">Fantasy / 数据 API</div><div class="desc">提供 ESPN Fantasy API，覆盖篮球在内的多个体育项目，适合做 Fantasy、数据看板或自动化工具。</div><div class="tags"><span class="tag">API</span><span class="tag">Fantasy</span><span class="tag">数据</span></div></article>
+      <article class="card"><h3><a href="https://github.com/linouk23/NBA-Player-Movements" target="_blank" rel="noreferrer">linouk23 / NBA-Player-Movements</a></h3><div class="stars">★ 726</div><div class="tagline">NBA 轨迹可视化</div><div class="desc">从 SportVU 原始日志中可视化球员与比赛过程，适合做战术、跑位与位置数据探索。</div><div class="tags"><span class="tag">可视化</span><span class="tag">球员轨迹</span><span class="tag">NBA</span></div></article>
+      <article class="card"><h3><a href="https://github.com/bttmly/nba" target="_blank" rel="noreferrer">bttmly / nba</a></h3><div class="stars">★ 726</div><div class="tagline">nba.com API 客户端</div><div class="desc">Node.js 客户端，面向 nba.com API 端点，适合做二次开发、爬数与数据服务封装。</div><div class="tags"><span class="tag">Node.js</span><span class="tag">API</span><span class="tag">NBA</span></div></article>
+      <article class="card"><h3><a href="https://github.com/ricott1/rebels-in-the-sky" target="_blank" rel="noreferrer">ricott1 / rebels-in-the-sky</a></h3><div class="stars">★ 639</div><div class="tagline">篮球题材终端游戏</div><div class="desc">太空海盗篮球题材 P2P 终端游戏，属于篮球题材的创意游戏类项目。</div><div class="tags"><span class="tag">游戏</span><span class="tag">终端</span><span class="tag">创意项目</span></div></article>
+      <article class="card"><h3><a href="https://github.com/smuyyh/SprintNBA" target="_blank" rel="noreferrer">smuyyh / SprintNBA</a></h3><div class="stars">★ 634</div><div class="tagline">NBA 客户端</div><div class="desc">一个面向 NBA 内容的客户端项目，适合看看篮球资讯类 App 在 GitHub 上的实现思路。</div><div class="tags"><span class="tag">客户端</span><span class="tag">NBA</span><span class="tag">应用</span></div></article>
+      <article class="card"><h3><a href="https://github.com/FaridSafi/react-native-basketball" target="_blank" rel="noreferrer">FaridSafi / react-native-basketball</a></h3><div class="stars">★ 573</div><div class="tagline">React Native 篮球小游戏</div><div class="desc">React Native 实现的篮球小游戏，适合移动端开发者看交互 demo 与小游戏实现。</div><div class="tags"><span class="tag">React Native</span><span class="tag">小游戏</span><span class="tag">移动端</span></div></article>
+      <article class="card"><h3><a href="https://github.com/jaebradley/basketball_reference_web_scraper" target="_blank" rel="noreferrer">jaebradley / basketball_reference_web_scraper</a></h3><div class="stars">★ 542</div><div class="tagline">Basketball Reference 数据抓取</div><div class="desc">围绕 Basketball Reference 的抓取工具，适合数据分析、建模、统计研究前的数据准备。</div><div class="tags"><span class="tag">爬虫</span><span class="tag">数据抓取</span><span class="tag">统计</span></div></article>
+      <article class="card"><h3><a href="https://github.com/zengm-games/zengm" target="_blank" rel="noreferrer">zengm-games / zengm</a></h3><div class="stars">★ 428</div><div class="tagline">篮球经理模拟</div><div class="desc">经典的单机体育经营模拟项目，篮球经理玩法是其中重要组成，适合看成熟前端产品结构。</div><div class="tags"><span class="tag">模拟经营</span><span class="tag">游戏</span><span class="tag">前端</span></div></article>
+      <article class="card"><h3><a href="https://github.com/wyhuai/SkillMimic" target="_blank" rel="noreferrer">wyhuai / SkillMimic</a></h3><div class="stars">★ 413</div><div class="tagline">篮球交互技能学习</div><div class="desc">CVPR 2025 Highlight，面向篮球交互技能学习，偏研究项目，适合看动作建模与模仿学习。</div><div class="tags"><span class="tag">研究</span><span class="tag">技能学习</span><span class="tag">CV</span></div></article>
+      <article class="card"><h3><a href="https://github.com/kshvmdn/nba.js" target="_blank" rel="noreferrer">kshvmdn / nba.js</a></h3><div class="stars">★ 356</div><div class="tagline">NBA Stats Node.js 库</div><div class="desc">适合基于 Node.js 做 NBA 统计数据调用，是篮球数据开发方向的常见基础库。</div><div class="tags"><span class="tag">Node.js</span><span class="tag">统计</span><span class="tag">库</span></div></article>
+      <article class="card"><h3><a href="https://github.com/ayushpai/AI-Basketball-Referee" target="_blank" rel="noreferrer">ayushpai / AI-Basketball-Referee</a></h3><div class="stars">★ 354</div><div class="tagline">AI 裁判辅助</div><div class="desc">AI 篮球裁判方向项目，适合关注规则识别、辅助判罚、自动化裁判能力的人。</div><div class="tags"><span class="tag">AI</span><span class="tag">裁判辅助</span><span class="tag">识别</span></div></article>
+      <article class="card"><h3><a href="https://github.com/stephanj/basketballVideoAnalysis" target="_blank" rel="noreferrer">stephanj / basketballVideoAnalysis</a></h3><div class="stars">★ 326</div><div class="tagline">篮球视频分析</div><div class="desc">聚焦篮球视频分析，适合对比赛视频处理、事件理解、训练分析感兴趣的人。</div><div class="tags"><span class="tag">视频分析</span><span class="tag">篮球</span><span class="tag">分析</span></div></article>
+      <article class="card"><h3><a href="https://github.com/vishaalagartha/basketball_reference_scraper" target="_blank" rel="noreferrer">vishaalagartha / basketball_reference_scraper</a></h3><div class="stars">★ 288</div><div class="tagline">Basketball Reference 抓取模块</div><div class="desc">一个面向 Basketball Reference 的 Python 抓取模块，偏实用型数据准备工具。</div><div class="tags"><span class="tag">Python</span><span class="tag">爬虫</span><span class="tag">数据</span></div></article>
+      <article class="card"><h3><a href="https://github.com/jrbadiabo/Bet-on-Sibyl" target="_blank" rel="noreferrer">jrbadiabo / Bet-on-Sibyl</a></h3><div class="stars">★ 277</div><div class="tagline">体育预测 / 含篮球</div><div class="desc">机器学习体育预测项目，覆盖篮球在内多项运动，更偏预测建模与博彩相关数据实验。</div><div class="tags"><span class="tag">预测</span><span class="tag">机器学习</span><span class="tag">体育建模</span></div></article>
+      <article class="card"><h3><a href="https://github.com/KengoA/fantasy-basketball" target="_blank" rel="noreferrer">KengoA / fantasy-basketball</a></h3><div class="stars">★ 266</div><div class="tagline">Fantasy 篮球建模</div><div class="desc">结合抓取、神经网络、boosting 和 lineup 优化，适合 Fantasy Basketball 与数据建模方向。</div><div class="tags"><span class="tag">Fantasy</span><span class="tag">机器学习</span><span class="tag">优化</span></div></article>
+      <article class="card"><h3><a href="https://github.com/avishah3/AI-Basketball-Shot-Detection-Tracker" target="_blank" rel="noreferrer">avishah3 / AI-Basketball-Shot-Detection-Tracker</a></h3><div class="stars">★ 244</div><div class="tagline">投篮检测与追踪</div><div class="desc">实时篮球投篮检测与分析，适合你后续如果还想回到“视觉 AI 篮球项目”方向时重点查看。</div><div class="tags"><span class="tag">Shot Detection</span><span class="tag">Tracking</span><span class="tag">实时分析</span></div></article>
+      <article class="card"><h3><a href="https://github.com/lbenz730/ncaahoopR" target="_blank" rel="noreferrer">lbenz730 / ncaahoopR</a></h3><div class="stars">★ 227</div><div class="tagline">NCAA 篮球 Play-by-Play 数据</div><div class="desc">R 包，面向 NCAA Basketball Play-by-Play 数据，适合做大学篮球统计与研究。</div><div class="tags"><span class="tag">NCAA</span><span class="tag">R</span><span class="tag">Play-by-Play</span></div></article>
+      <article class="card"><h3><a href="https://github.com/neilmj/BasketballData" target="_blank" rel="noreferrer">neilmj / BasketballData</a></h3><div class="stars">★ 212</div><div class="tagline">篮球数据集合</div><div class="desc">名称直接聚焦 Basketball Data，适合当作一个通用篮球数据资源入口继续挖掘。</div><div class="tags"><span class="tag">数据集</span><span class="tag">篮球数据</span><span class="tag">资源</span></div></article>
+      <article class="card"><h3><a href="https://github.com/simonefrancia/SpaceJam" target="_blank" rel="noreferrer">simonefrancia / SpaceJam</a></h3><div class="stars">★ 189</div><div class="tagline">篮球动作识别数据集</div><div class="desc">一个专门面向篮球动作识别的数据集项目，偏研究与训练数据准备。</div><div class="tags"><span class="tag">动作识别</span><span class="tag">数据集</span><span class="tag">研究</span></div></article>
+      <article class="card"><h3><a href="https://github.com/neeilan/DeepPlayByPlay" target="_blank" rel="noreferrer">neeilan / DeepPlayByPlay</a></h3><div class="stars">★ 180</div><div class="tagline">深度学习标注 NBA 动作</div><div class="desc">通过深度学习标注 NBA action，适合关注赛事动作理解、事件识别的人。</div><div class="tags"><span class="tag">深度学习</span><span class="tag">动作标注</span><span class="tag">NBA</span></div></article>
+      <article class="card"><h3><a href="https://github.com/xwjdsh/nba-live" target="_blank" rel="noreferrer">xwjdsh / nba-live</a></h3><div class="stars">★ 180</div><div class="tagline">终端看 NBA 比赛</div><div class="desc">可以在终端看 NBA 比赛信息，中文内容友好，属于轻量但很接地气的篮球工具类项目。</div><div class="tags"><span class="tag">终端</span><span class="tag">中文</span><span class="tag">NBA</span></div></article>
+      <article class="card"><h3><a href="https://github.com/leerob/ncaam" target="_blank" rel="noreferrer">leerob / ncaam</a></h3><div class="stars">★ 178</div><div class="tagline">NCAA 比分与赛程</div><div class="desc">关注 NCAA 篮球比分和赛程的简洁项目，适合做轻量数据展示与赛程查看。</div><div class="tags"><span class="tag">NCAA</span><span class="tag">比分</span><span class="tag">赛程</span></div></article>
+    </div>
+
+    <section class="footer">
+      <h2>如何使用这页</h2>
+      <ul>
+        <li>如果你想看 <strong>篮球数据/API</strong>：优先看 <code>nba-go</code>、<code>bttmly/nba</code>、<code>nba.js</code>、<code>basketball_reference_web_scraper</code>。</li>
+        <li>如果你想看 <strong>AI / 视频 / 动作分析</strong>：优先看 <code>AI-basketball-analysis</code>、<code>AI-Basketball-Shot-Detection-Tracker</code>、<code>SpaceJam</code>、<code>DeepPlayByPlay</code>、<code>basketballVideoAnalysis</code>。</li>
+        <li>如果你想看 <strong>大学篮球 / NCAA</strong>：优先看 <code>ncaahoopR</code>、<code>ncaam</code>。</li>
+        <li>如果你想看 <strong>Fantasy / 建模 / 预测</strong>：优先看 <code>fantasy-basketball</code>、<code>Bet-on-Sibyl</code>、<code>espn-api</code>。</li>
+        <li>如果你想看 <strong>篮球游戏 / 娱乐化项目</strong>：优先看 <code>zengm</code>、<code>react-native-basketball</code>、<code>rebels-in-the-sky</code>。</li>
+      </ul>
+      <p class="tips">说明：本页是“先看有哪些”的导航版，不是严格学术评测。后续如果你愿意，我可以继续帮你做第 2 版：增加分类筛选、stars 排序按钮、项目搜索框、最近更新时间、语言分布，甚至拆成 <code>数据类 / AI类 / 游戏类</code> 三个子页面。</p>
+    </section>
+  </div>
 </body>
 </html>
